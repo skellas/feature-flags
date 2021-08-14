@@ -19,3 +19,7 @@ target/
 ### VS Code ###
 .vscode/
 
+### Eclipse'ish?
+.classpath
+.settings/
+.project
