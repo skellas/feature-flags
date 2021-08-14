@@ -4,3 +4,9 @@ spring:
     show_banner: false
   profiles:
     active: test
+features:
+  enabled:
+     - "Feature One"
+     - "Feature Two"
+  disabled:
+     - "Beta Feature"

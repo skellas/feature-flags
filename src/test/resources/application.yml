@@ -4,3 +4,37 @@ spring:
     show_banner: false
   profiles:
     active: test
+  
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+features:
+  enabled:
+     - "Feature One"
+     - "Feature Two"
+  disabled:
+     - "Beta Feature"
+---
+spring:
+  config:
+    activate:
+      on-profile: development
+features:
+  enabled:
+     - "Feature One"
+  disabled:
+     - "Feature Two"
+     - "Beta Feature"
+---
+spring:
+  config:
+    activate:
+      on-profile: production
+features:
+  enabled:
+  disabled:
+     - "Feature One"
+     - "Feature Two"
+     - "Beta Feature"

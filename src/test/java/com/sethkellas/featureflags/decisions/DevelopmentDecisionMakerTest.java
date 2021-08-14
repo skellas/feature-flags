@@ -3,6 +3,8 @@ package com.sethkellas.featureflags.decisions;
 import static java.lang.String.format;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
+
 import com.sethkellas.featureflags.environments.DevelopmentEnvironment;
 
 import org.junit.jupiter.api.Test;
@@ -25,5 +27,19 @@ public class DevelopmentDecisionMakerTest {
 			.isEqualTo(format(DecisionMaker.decisionFormat,
 				DecisionMaker.safeToTestString(Boolean.TRUE),
 				DevelopmentEnvironment.NAME));
+	}
+	
+	@Test
+	void shouldReturnAvailableFeatures() {
+		List<String> availableFeatures = decisionMaker.availableFeatures();
+
+		assertThat(availableFeatures).containsExactly("Feature One");
+	}
+	
+	@Test
+	void shouldReturnADisabledFeatures() {
+		List<String> availableFeatures = decisionMaker.betaFeatures();
+
+		assertThat(availableFeatures).containsExactly("Feature Two", "Beta Feature");
 	}
 }
